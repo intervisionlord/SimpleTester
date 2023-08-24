@@ -1,0 +1,7 @@
+<RCC>
+  <qresource>
+    <file>imgs/flask.png</file>
+    <file>imgs/open.png</file>
+    <file>imgs/reset.png</file>
+  </qresource>
+</RCC>
