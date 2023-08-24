@@ -41,6 +41,10 @@ class Ui_main_window(object):
         self.btn_reset = QtWidgets.QPushButton(self.centralwidget)
         self.btn_reset.setGeometry(QtCore.QRect(180, 10, 161, 41))
         self.btn_reset.setObjectName("btn_reset")
+        self.btn_info = QtWidgets.QPushButton(self.centralwidget)
+        self.btn_info.setGeometry(QtCore.QRect(550, 10, 41, 41))
+        self.btn_info.setText("")
+        self.btn_info.setObjectName("btn_info")
         main_window.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(main_window)
         self.menubar.setGeometry(QtCore.QRect(0, 0, 610, 21))
@@ -63,4 +67,5 @@ class Ui_main_window(object):
         self.btn_var4.setText(_translate("main_window", "4. Вариант ответа"))
         self.btn_open.setText(_translate("main_window", "Открыть тест"))
         self.btn_reset.setText(_translate("main_window", "Начать заново"))
+        self.btn_info.setToolTip(_translate("main_window", "Справка"))
 import ui_res_rc

@@ -8,14 +8,17 @@ import gui
 class MainApp(QMainWindow, gui.Ui_main_window):
     def __init__(self):
         super().__init__()
-        reset_icon = QIcon(':/imgs/reset.png')
-        open_icon = QIcon(':/imgs/open.png')
-        window_icon = QIcon(':/imgs/flask.png')
+        reset_icon = QIcon(':/imgs/reset.ico')
+        open_icon = QIcon(':/imgs/open.ico')
+        window_icon = QIcon(':/imgs/app.ico')
+        help_icon = QIcon(':/imgs/help.ico')
         self.setupUi(self)
         self.setWindowTitle('Simple Tester')
         self.setWindowIcon(window_icon)
         self.btn_open.setIcon(open_icon)
         self.btn_reset.setIcon(reset_icon)
+        self.btn_info.setIcon(help_icon)
+        
         self.testbody = 0
         self.question_number = 1
         self.result = 0
@@ -34,6 +37,7 @@ class MainApp(QMainWindow, gui.Ui_main_window):
         
         self.btn_open.clicked.connect(self.open_dialog)
         self.btn_reset.clicked.connect(self.test_reset)
+        self.btn_info.clicked.connect(self.about_msg)
     
     def start_test(self):
         self.questions_count = len(self.testbody)
@@ -107,6 +111,16 @@ class MainApp(QMainWindow, gui.Ui_main_window):
         msg_box.setText(f'Правильных ответов: {self.result} из {self.questions_count}')
         msg_box.exec_()
     
+    def about_msg(self):
+        msg_box = QMessageBox()
+        msg_box.setWindowTitle('Справка')
+        msg_box.setIcon(QMessageBox.Information)
+        msg_box.setText(
+            'Simple Tester\n\n'
+            'Версия 0.0.1.0'
+            )
+        msg_box.exec_()
+
     def open_dialog(self):
         self.test_path = QFileDialog.getOpenFileName(self, 'Открыть файл теста', 'tests', '*.yaml')[0]
         if self.test_path != '':

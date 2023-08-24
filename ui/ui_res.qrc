@@ -1,7 +1,8 @@
 <RCC>
   <qresource>
-    <file>imgs/flask.png</file>
-    <file>imgs/open.png</file>
-    <file>imgs/reset.png</file>
+    <file>imgs/app.ico</file>
+    <file>imgs/help.ico</file>
+    <file>imgs/open.ico</file>
+    <file>imgs/reset.ico</file>
   </qresource>
 </RCC>
