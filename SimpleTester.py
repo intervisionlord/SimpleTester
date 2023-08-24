@@ -2,10 +2,8 @@ from PyQt5.QtGui import QIcon
 from PyQt5.QtWidgets import QApplication, QMessageBox, QMainWindow, QFileDialog
 from yaml import full_load as loadyaml
 from pathlib import Path as path
-# from datetime import datetime
 import sys
 import gui
-# import ui_res_rc
 
 class MainApp(QMainWindow, gui.Ui_main_window):
     def __init__(self):
@@ -55,12 +53,6 @@ class MainApp(QMainWindow, gui.Ui_main_window):
         test_question_block = self.testbody[f'q{self.question_number}']
         if str(variant) == str(test_question_block[5]):
             self.result += 1
-            # print('Верно')
-        # else:
-        #     print('Не верно')
-        
-        # print('Ответ:',test_question_block[5])
-        # print('Дан ответ:',variant)
         self.next_question()
         
     def next_question(self):
@@ -84,9 +76,6 @@ class MainApp(QMainWindow, gui.Ui_main_window):
         self.btn_var4.setText(test_question_block[4])
     
     def load_test(self):
-        # with open('tests/Лабораторная диагностика. (2020 год).yaml', 'r', encoding = 'utf-8') as testfile:
-        #     self.testbody = loadyaml(testfile)
-        # title = path('tests/Лабораторная диагностика. (2020 год).yaml').stem
         with open(self.test_path, 'r', encoding = 'utf-8') as testfile:
             self.testbody = loadyaml(testfile)
         title = path(self.test_path).stem
@@ -96,7 +85,6 @@ class MainApp(QMainWindow, gui.Ui_main_window):
     
     def test_reset(self):
         def reset_confirmed():
-            # self.testbody = 0
             self.question_number = 1
             self.result = 0
             self.questions_count = 0
